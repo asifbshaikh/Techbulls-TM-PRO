@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PRO Techbulls-Turtlemint</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h3>Mapping utility</h3> 
+</div>
+  
+<div class="container" ng-app="MyApp" ng-controller="MyController">
+	<form ng-submit="processRequest();">
+		<div class="row alert alert-danger alert-dismissible" ng-if="alert">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		    <strong>Not valid JSON!</strong> Please provide valid json and try again.
+		</div>
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="form-group">
+					<label for="comment">Input:</label>
+					<textarea ng-model="inputData.input" class="form-control" rows="25" id="comment" required="true" autofocus="true"></textarea>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="form-group">
+				<label for="comment">Parameters:</label>
+					<div class="row">
+						<select class="form-control" id="sel1" ng-model="inputData.apiType" required="true">
+						  	<option value="">Input type</option>
+						    <option value="json">JSON</option>
+						    <option value="xml">XML</option>
+						</select>
+					</div>
+					<div class="row" style="padding-top: 5px">
+						<select class="form-control" id="sel1" ng-model="inputData.tmRequestType" required="true">
+						  	<option value="">Request type</option>
+						    <option value="PREMIUM">Premium</option>
+						    <option value="PROPOSAL">Proposal</option>
+						    <option value="POST_PAYMENT">Post Payment</option>
+						</select>
+					</div>
+					<div class="row" style="padding-top: 5px">
+						<input type="text" class="form-control" placeholder="Integration Provide" ng-model="inputData.integrationProvider" required="true">
+					</div>
+					<div class="row" style="padding-top: 5px">
+						<input type="text" class="form-control" placeholder="Request URL" ng-model="inputData.requestUrl" required="true">
+					</div>
+					<div class="row" style="padding-top: 5px">
+						<select class="form-control" id="sel1" ng-model="inputData.vertical" required="true">
+						  	<option value="">Select Vertical</option>
+						    <option value="HEALTH">HEALTH</option>
+						    <option value="MOTOR">MOTOR</option>
+						</select>
+					</div>
+					<div  class="row  text-center" style="padding-top: 5px">
+						<button type="submit" class="btn btn-default">Go >></button>
+					</div>
+					
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="form-group">
+					<label for="comment">Integration Mapping:</label>
+					<textarea ng-bind="integrationMapping" class="form-control" rows="25" id="comment"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="form-group">
+					<label for="comment">Integration calls meta:</label>
+					<textarea ng-bind="integrationCallsMeta" class="form-control" rows="15" id="comment"></textarea>
+				</div>
+			</div>
+		</div>
+  	</form>
+</div>
+<script src="Controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "Techbulls-Turtlemint-PRO",
+  "private": true,
+  "dependencies": {
+    "json-formatter-js": "^2.2.1"
+  }
+}
