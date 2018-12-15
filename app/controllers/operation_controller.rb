@@ -92,9 +92,6 @@ class OperationController < ApplicationController
 		@@integration_mapping[:responseMapping] = @@response_mapping
 		build_api_configurations params
 		
-
-		
-		
 		render :json => {:integration_mapping => @@integration_mapping, :integration_calls_meta => @@calls_meta}, status: 200
 	end
 end

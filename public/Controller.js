@@ -2,6 +2,17 @@ var app = angular.module('MyApp', []);
 app.controller('MyController', function($scope, $http) {
 
 	$scope.alert = false;
+	$scope.validateTypes = function (type){
+		if(type === "xml") { 
+			$scope.alert = true; 
+			$scope.alertHead = "XML not supported!"; 
+			$scope.alertBody = "XML not supported for now, we will fix it soon"; 
+		}
+		else {
+			$scope.alert = false; 
+		}
+	}
+
 	$scope.isValidJson = function(){
 		try {
         	JSON.parse($scope.inputData.input);
@@ -23,7 +34,9 @@ app.controller('MyController', function($scope, $http) {
 	    	});	
     	}
     	else{
-    		$scope.alert = true;
+    		$scope.alert = true; 
+    		$scope.alertHead = "JSON not valid !"; 
+    		$scope.alertBody = "Please provide valid json and try again";
     	}
     	
 

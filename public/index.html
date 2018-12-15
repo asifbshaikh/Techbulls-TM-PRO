@@ -18,7 +18,7 @@
 	<form ng-submit="processRequest();">
 		<div class="row alert alert-danger alert-dismissible" ng-if="alert">
 		    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		    <strong>Not valid JSON!</strong> Please provide valid json and try again.
+		    <strong>{{alertHead}}</strong> {{alertBody}}.
 		</div>
 		<div class="row">
 			<div class="col-sm-5">
@@ -31,7 +31,7 @@
 				<div class="form-group">
 				<label for="comment">Parameters:</label>
 					<div class="row">
-						<select class="form-control" id="sel1" ng-model="inputData.apiType" required="true">
+						<select class="form-control" id="sel1" ng-model="inputData.apiType" required="true" ng-change="validateTypes(inputData.apiType);">
 						  	<option value="">Input type</option>
 						    <option value="json">JSON</option>
 						    <option value="xml">XML</option>
